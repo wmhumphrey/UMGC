@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Room Reservation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        .step {
+            margin-bottom: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        button {
+            margin: 5px 0;
+            padding: 8px 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Make Room Reservation for a Guest</h1>
+    <!-- Step 1: Enter Reservation Dates -->
+    <div id="step1" class="step">
+        <h2>Step 1: Enter Reservation Dates</h2>
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" required>
+        <br><br>
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" required>
+        <br><br>
+        <button onclick="findRooms()">Find Available Rooms</button>
+    </div>
+
+    <!-- Step 2: Display Available Rooms -->
+    <div id="step2" class="step hidden">
+        <h2>Step 2: Available Rooms</h2>
+        <div id="roomsMessage"></div>
+        <table id="roomsTable">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Room Number</th>
+                    <th>Room Type</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be added dynamically -->
+            </tbody>
+        </table>
+        <br>
+        <button onclick="restartReservation()">Change Dates</button>
+    </div>
+
+    <!-- Step 3: Complete Reservation Details -->
+    <div id="step3" class="step hidden">
+        <h2>Step 3: Complete Reservation</h2>
+        <p>Selected Room: <span id="selectedRoomInfo"></span></p>
+        <label for="guestName">Guest Name:</label>
+        <input type="text" id="guestName" required>
+        <br><br>
+        <label for="paymentOption">
+            <input type="checkbox" id="paymentOption">
+            1-Day Guarantee Payment?
+        </label>
+        <br><br>
+        <button onclick="completeReservation()">Complete Reservation</button>
+        <button onclick="backToRooms()">Back</button>
+    </div>
+
+    <script>
+        // For demonstration, we use dummy room data.
+        // In a real application, the system would query the back end for available rooms
+        // based on the requested date range.
+        const dummyRooms = [
+            { roomNumber: '101', type: 'Normal', price: '$100' },
+            { roomNumber: '102', type: 'Bath', price: '$150' },
+            { roomNumber: '201', type: 'View', price: '$250' }
+        ];
+
+        // Function to simulate the search for available rooms
+        function findRooms() {
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+
+            if (!startDate || !endDate) {
+                alert('Please enter both start and end dates.');
+                return;
+            }
+
+            // (Optional) Validate that the start date is before the end date.
+            if (new Date(startDate) > new Date(endDate)) {
+                alert('Start date must be before the end date.');
+                return;
+            }
+
+            // Hide step 1 and show step 2
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+
+            // In a real system, you would fetch available rooms based on the dates.
+            // For demonstration, we assume dummyRooms is our result.
+            const availableRooms = dummyRooms; // Replace with real search result.
+
+            const tbody = document.querySelector('#roomsTable tbody');
+            tbody.innerHTML = '';  // Clear any previous results
+
+            if (availableRooms.length === 0) {
+                document.getElementById('roomsMessage').innerText =
+                    'No available rooms for the selected dates. Please try different dates.';
+            } else {
+                document.getElementById('roomsMessage').innerText = '';
+                availableRooms.forEach((room, index) => {
+                    const row = document.createElement('tr');
+
+                    // Cell with a select button for each room.
+                    const cellSelect = document.createElement('td');
+                    const selectButton = document.createElement('button');
+                    selectButton.innerText = 'Select';
+                    selectButton.onclick = () => selectRoom(index);
+                    cellSelect.appendChild(selectButton);
+                    row.appendChild(cellSelect);
+
+                    // Room number
+                    const cellNumber = document.createElement('td');
+                    cellNumber.innerText = room.roomNumber;
+                    row.appendChild(cellNumber);
+
+                    // Room type
+                    const cellType = document.createElement('td');
+                    cellType.innerText = room.type;
+                    row.appendChild(cellType);
+
+                    // Room price
+                    const cellPrice = document.createElement('td');
+                    cellPrice.innerText = room.price;
+                    row.appendChild(cellPrice);
+
+                    tbody.appendChild(row);
+                });
+            }
+        }
+
+        // When a room is selected, move to step 3.
+        function selectRoom(index) {
+            const room = dummyRooms[index];
+            document.getElementById('selectedRoomInfo').innerText =
+                `${room.roomNumber} (${room.type}) - ${room.price}`;
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step3').classList.remove('hidden');
+        }
+
+        // Allow the clerk to return to the available rooms list if needed.
+        function backToRooms() {
+            document.getElementById('step3').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+        }
+
+        // Complete the reservation by capturing the guest's name and payment option.
+        function completeReservation() {
+            const guestName = document.getElementById('guestName').value.trim();
+            if (!guestName) {
+                alert('Please enter the guest’s name.');
+                return;
+            }
+            const paymentRequired = document.getElementById('paymentOption').checked;
+
+            // In a real system, here you would call an API to create the reservation.
+            // This would include saving the guest’s details, selected room, date range, 
+            // and processing the guarantee payment if required.
+            // For demonstration, we simulate a successful reservation with an alert.
+            alert(`Reservation completed for ${guestName}.
+Selected Room: ${document.getElementById('selectedRoomInfo').innerText}
+Guarantee Payment: ${paymentRequired ? 'Yes' : 'No'}`);
+
+            // Reset the form to allow a new reservation if needed.
+            resetReservation();
+        }
+
+        // Function to restart the reservation process (for a new date selection).
+        function restartReservation() {
+            // Clear any data in step 2 and step 3 and go back to step 1.
+            resetReservation();
+        }
+
+        // Reset all steps back to the initial state.
+        function resetReservation() {
+            // Clear input fields and messages.
+            document.getElementById('startDate').value = '';
+            document.getElementById('endDate').value = '';
+            document.getElementById('guestName').value = '';
+            document.getElementById('paymentOption').checked = false;
+            document.getElementById('roomsMessage').innerText = '';
+            document.querySelector('#roomsTable tbody').innerHTML = '';
+
+            // Show step 1 and hide steps 2 and 3.
+            document.getElementById('step1').classList.remove('hidden');
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step3').classList.add('hidden');
+        }
+    </script>
+</body>
+
+</html>

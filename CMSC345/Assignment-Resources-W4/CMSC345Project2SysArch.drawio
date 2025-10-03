@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" version="26.0.10">
+  <diagram id="QcyW01OXDd3iPOs3ci4l" name="Page-1">
+    <mxGraphModel dx="1194" dy="605" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="UiZTnG6sWl4PAyo-b8Qf-1" value="Database&lt;div&gt;&lt;br&gt;&lt;div&gt;Stores Guest Information&lt;/div&gt;&lt;div&gt;Stores ReservationData&lt;/div&gt;&lt;div&gt;Stores Payment information&lt;/div&gt;&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
+          <mxGeometry x="670" y="370" width="192" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="VPRRuvQE9U8-oyr-v0Kj-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="UiZTnG6sWl4PAyo-b8Qf-3" target="UiZTnG6sWl4PAyo-b8Qf-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UiZTnG6sWl4PAyo-b8Qf-3" value="Business Tier&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Processes payment information&lt;/div&gt;&lt;div&gt;Processes reservation services&lt;/div&gt;&lt;div&gt;Implements room avaliblity checking&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="430" y="370" width="180" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="VPRRuvQE9U8-oyr-v0Kj-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="UiZTnG6sWl4PAyo-b8Qf-4" target="UiZTnG6sWl4PAyo-b8Qf-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UiZTnG6sWl4PAyo-b8Qf-4" value="UI Displays&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Links calendar display&lt;/div&gt;&lt;div&gt;Links elements to enter payments and connects to payment processing&lt;/div&gt;&lt;div&gt;Displays room availibility&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="220" y="370" width="180" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="VPRRuvQE9U8-oyr-v0Kj-1" value="Client(John and Jane)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VPRRuvQE9U8-oyr-v0Kj-2" value="Client Tier" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="60" y="378" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="VPRRuvQE9U8-oyr-v0Kj-3" value="Web Tier" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="265" y="328" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="VPRRuvQE9U8-oyr-v0Kj-4" value="Business Tier" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="470" y="320" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="VPRRuvQE9U8-oyr-v0Kj-5" value="Database Tier" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="716" y="328" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="VPRRuvQE9U8-oyr-v0Kj-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="VPRRuvQE9U8-oyr-v0Kj-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VPRRuvQE9U8-oyr-v0Kj-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=47.5;entryPerimeter=0;" edge="1" parent="1" source="UiZTnG6sWl4PAyo-b8Qf-3" target="UiZTnG6sWl4PAyo-b8Qf-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="670" y="415" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VPRRuvQE9U8-oyr-v0Kj-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=112.5;exitPerimeter=0;entryX=0.978;entryY=0.622;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="UiZTnG6sWl4PAyo-b8Qf-1" target="UiZTnG6sWl4PAyo-b8Qf-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
