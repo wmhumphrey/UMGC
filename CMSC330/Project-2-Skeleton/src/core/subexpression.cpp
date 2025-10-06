@@ -20,6 +20,9 @@ using namespace std;
 #include "divide.h"
 #include "remainder.h"
 #include "exponent.h"
+#include "min.h"
+#include "max.h"
+#include "avg.h"
 
 SubExpression::SubExpression(Expression* left, Expression* right) {
     this->left = left;
@@ -48,6 +51,12 @@ Expression* SubExpression::parse(stringstream& in) {
             return new Remainder(left, right);
         case '^':
             return new Exponent(left, right);
+        case '<':
+            return new Min(left, right);
+        case '>':
+            return new Max(left, right);
+        case '&':
+            return new Avg(left, right);
     }
     return 0;
 }
