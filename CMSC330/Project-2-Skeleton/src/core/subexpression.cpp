@@ -23,6 +23,8 @@ using namespace std;
 #include "min.h"
 #include "max.h"
 #include "avg.h"
+#include "negate.h"
+#include "ternary.h"
 
 SubExpression::SubExpression(Expression* left, Expression* right) {
     this->left = left;
@@ -57,6 +59,14 @@ Expression* SubExpression::parse(stringstream& in) {
             return new Max(left, right);
         case '&':
             return new Avg(left, right);
+        case '~':
+            return new Negate(left);
+        case '?': {
+            Expression* trueExp = Operand::parse(in);
+            Expression* falseExp = Operand::parse(in);
+            in >>paren;
+            return new Ternary(left, trueExp, falseExp);
+        }
     }
     return 0;
 }
