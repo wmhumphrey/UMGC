@@ -1,0 +1,72 @@
+# ============================
+# C++ Build Artifacts
+# ============================
+
+# Object and binary files
+*.o
+*.obj
+*.out
+*.exe
+*.dll
+*.so
+*.a
+*.lib
+
+# Debug and log files
+*.log
+*.pdb
+*.idb
+
+# Auto-generated dependency files
+*.d
+
+# ============================
+# IDE / Editor Files
+# ============================
+
+# VS Code
+.vscode/
+.history/
+*.code-workspace
+
+# Visual Studio
+.vs/
+*.vcxproj*
+*.sln
+*.user
+*.suo
+
+# CLion / JetBrains
+.idea/
+cmake-build-*/
+
+# ============================
+# System Files
+# ============================
+
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# ============================
+# Project Specific
+# ============================
+
+# Compiled executable in root
+project2
+project2.exe
+
+# Temporary build folders
+build/
+bin/
+obj/
+out/
+
+# Input/output data generated during testing
+*.tmp
+*.bak
+*.old
+
+# Local configuration or environment files
+*.env
