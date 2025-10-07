@@ -34,7 +34,7 @@ int main() {
     char paren, comma, line[SIZE];
  
 	ifstream fin;
-	fin = ifstream("input.txt");
+	fin = ifstream("input2.txt");
 	if (!(fin.is_open())) {
 		cout << "File did not open" << endl;
 		system("pause");
