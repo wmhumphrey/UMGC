@@ -7,6 +7,11 @@
 // that contains one statement that includes an expression following by a sequence of variable assignments.
 // It parses each statement and then evaluates it.
 
+
+
+
+
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -39,6 +44,8 @@ int main() {
         fin.getline(line, SIZE);
 		if (!fin)
 			break;
+		symbolTable = SymbolTable();
+		symbolTable.clear();
 		stringstream in(line, ios_base::in); 
 		in >> paren;
 		cout << line << " ";
@@ -60,7 +67,7 @@ int main() {
 void parseAssignments(stringstream& in) {
 	char assignop, delimiter;
     string variable;
-    int value;
+    double value;
     do {
         variable = parseName(in);
         in >> ws >> assignop >> value >> delimiter;

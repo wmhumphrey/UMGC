@@ -32,6 +32,20 @@ SubExpression::SubExpression(Expression* left, Expression* right) {
     this->right = right;
 }
 
+SubExpression::SubExpression(Expression* left, Expression* m1, Expression* right) {
+    this->left = left;
+    this->right = right;
+    this->m1 = m1;
+}
+
+SubExpression::SubExpression(Expression* left, Expression* m1, Expression* m2, Expression* right) {
+    this->left = left;
+    this->right = right;
+    this->m1 = m1;
+    this->m2 = m2;
+}
+
+
 Expression* SubExpression::parse(stringstream& in) {
     Expression* left;
     Expression* right;
@@ -63,17 +77,17 @@ Expression* SubExpression::parse(stringstream& in) {
         case '~':
             return new Negate(left);
         case '?': {
-            Expression* trueExp = Operand::parse(in);
-            Expression* falseExp = Operand::parse(in);
+            Expression* m1 = Operand::parse(in);
+            Expression* right = Operand::parse(in);
             in >>paren;
-            return new Ternary(left, trueExp, falseExp);
+            return new Ternary(left, m1, right);
         };
         case '#': {
-            Expression* firstExp = Operand::parse(in);
-            Expression* secondExp = Operand::parse(in);
-            Expression* thirdExp = Operand::parse(in);
+            Expression* m1 = Operand::parse(in);
+            Expression* m2 = Operand::parse(in);
+            Expression* right = Operand::parse(in);
             in >> paren;
-            return new Quartenary(left, firstExp, secondExp, thirdExp);
+            return new Quartenary(left, m1, m2, right);
         };
     }
     return 0;

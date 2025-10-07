@@ -12,6 +12,9 @@ public:
     SymbolTable() {}
     void insert(string variable, double value);
     double lookUp(string variable) const;
+    void clear() {
+        elements.clear();
+    }
 private:
     struct Symbol {
         Symbol(string variable, double value) {

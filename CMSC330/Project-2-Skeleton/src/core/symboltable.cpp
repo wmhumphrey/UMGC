@@ -12,16 +12,33 @@
 using namespace std;
 
 #include "symboltable.h"
+#include "exception.h"
 
 void SymbolTable::insert(string variable, double value) {
+    for (const Symbol& s:elements) {
+        if (s.variable == variable) {
+            throw DupVarErr(variable);
+        }
+    }
     const Symbol& symbol = Symbol(variable, value);
     elements.push_back(symbol);
 }
 
 double SymbolTable::lookUp(string variable) const {
-    for (int i = 0; i < elements.size(); i++)
-        if (elements[i].variable == variable)
-             return elements[i].value;
-    return -1;
-}
+    double result;
+    int count = 0;
 
+    for(const Symbol& s : elements) {
+        if (s.variable == variable) {
+           if(count > 0){
+            throw UninitVarErr(variable);
+           }
+            result = s.value;
+            count++;
+        }
+    }
+    if(count == 0){
+        throw UninitVarErr(variable);
+    }
+    return result;
+}

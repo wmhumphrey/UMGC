@@ -11,8 +11,12 @@
 class SubExpression: public Expression {
 public:
     SubExpression(Expression* left, Expression* right);
+    SubExpression(Expression* left, Expression* m1, Expression* right);
+    SubExpression(Expression* left, Expression* m1, Expression* m2, Expression* right);
     static Expression* parse(stringstream& in);
 protected: 
     Expression* left;
     Expression* right;
+    Expression* m1;
+    Expression* m2;
 };    

@@ -5,16 +5,15 @@ private:
     Expression* thirdExp;  
     
 public:
-    Quartenary(Expression* condition, Expression* firstExp, 
-               Expression* secondExp, Expression* thirdExp): 
-               SubExpression(condition, nullptr), firstExp(firstExp), secondExp(secondExp), thirdExp(thirdExp){}
+    Quartenary(Expression* left, Expression* m1, 
+               Expression* m2, Expression* right): SubExpression(left, m1, m2, right){}
     double evaluate() {
         if (left->evaluate() <= 0){
-            return firstExp->evaluate();
+            return m1->evaluate();
         } else if (left->evaluate() == 0) {
-            return secondExp->evaluate();
+            return m2->evaluate();
         } else {
-            return thirdExp->evaluate();
+            return right->evaluate();
         }
     }
 };
