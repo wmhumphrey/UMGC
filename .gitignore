@@ -1,0 +1,65 @@
+# =====================================
+# General C++ and build artifacts
+# =====================================
+*.o
+*.obj
+*.out
+*.exe
+*.dll
+*.so
+*.a
+*.lib
+*.pdb
+*.idb
+*.log
+*.d
+
+# =====================================
+# IDE and Editor Files
+# =====================================
+# VS Code
+.vscode/
+.history/
+*.code-workspace
+
+# Visual Studio
+.vs/
+*.sln
+*.vcxproj*
+*.user
+*.suo
+
+# CLion / JetBrains
+.idea/
+cmake-build-*/
+
+# =====================================
+# System Files
+# =====================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =====================================
+# Build directories
+# =====================================
+build/
+bin/
+obj/
+out/
+
+# =====================================
+# Project-specific
+# =====================================
+project2
+project2.exe
+*.tmp
+*.bak
+*.old
+
+# =====================================
+# Python or data (if you add analytics projects later)
+# =====================================
+__pycache__/
+*.pyc
+*.ipynb_checkpoints/
