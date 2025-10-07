@@ -25,6 +25,7 @@ using namespace std;
 #include "avg.h"
 #include "negate.h"
 #include "ternary.h"
+#include "quartenary.h"
 
 SubExpression::SubExpression(Expression* left, Expression* right) {
     this->left = left;
@@ -66,7 +67,14 @@ Expression* SubExpression::parse(stringstream& in) {
             Expression* falseExp = Operand::parse(in);
             in >>paren;
             return new Ternary(left, trueExp, falseExp);
-        }
+        };
+        case '#': {
+            Expression* firstExp = Operand::parse(in);
+            Expression* secondExp = Operand::parse(in);
+            Expression* thirdExp = Operand::parse(in);
+            in >> paren;
+            return new Quartenary(left, firstExp, secondExp, thirdExp);
+        };
     }
     return 0;
 }

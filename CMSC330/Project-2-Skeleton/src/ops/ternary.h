@@ -10,6 +10,6 @@ public:
             }
     
     double evaluate() {
-        return left->evaluate() ? trueExpression->evaluate() : falseExpression->evaluate();
+        return (left->evaluate() !=0)  ? trueExpression->evaluate() : falseExpression->evaluate();
     }
 };
