@@ -11,6 +11,6 @@ class Negate: public SubExpression {
         }
 
         double evaluate() {
-            return -left->evaluate();
+            return -(left->evaluate());
         }
 };

@@ -15,5 +15,5 @@ class UninitVarErr: public std::runtime_error {
 class DupVarErr: public std::runtime_error {
     public:
         explicit DupVarErr(const std::string& variable):
-        std::runtime_error("Error: " + variable + " has be initlaized ore than once.") {}
+        std::runtime_error("Error: " + variable + " has been initlaized more than once.") {}
 };
