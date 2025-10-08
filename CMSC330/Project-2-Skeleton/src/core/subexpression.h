@@ -15,8 +15,8 @@ public:
     SubExpression(Expression* left, Expression* m1, Expression* m2, Expression* right);
     static Expression* parse(stringstream& in);
 protected: 
-    Expression* left;
-    Expression* right;
-    Expression* m1;
-    Expression* m2;
+    Expression* left = nullptr;
+    Expression* right = nullptr;
+    Expression* m1 = nullptr; 
+    Expression* m2 = nullptr;
 };    

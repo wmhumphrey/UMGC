@@ -7,6 +7,11 @@
 // inserts a new variable symbol and its value into the symbol table and the lookUp function returns
 // that value of the supplied variable symbol name.
 
+// Modified by: Wyatt Humphrey Fall 2025
+// Added error handling for duplicate and uninitialized variables.
+// Ensures the symbol table is cleared before processing a new line.
+
+
 #include <string>
 #include <vector>
 using namespace std;
@@ -25,20 +30,10 @@ void SymbolTable::insert(string variable, double value) {
 }
 
 double SymbolTable::lookUp(string variable) const {
-    double result;
-    int count = 0;
-
-    for(const Symbol& s : elements) {
+    for (const Symbol& s:elements) {
         if (s.variable == variable) {
-           if(count > 0){
-            throw UninitVarErr(variable);
-           }
-            result = s.value;
-            count++;
+            return s.value;
         }
     }
-    if(count == 0){
-        throw UninitVarErr(variable);
-    }
-    return result;
+    throw UninitVarErr(variable);
 }

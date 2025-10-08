@@ -8,6 +8,10 @@
 // When the next character is a left parenthesis, a recursive call is made to parse the subexpression.
 // Otherwise the next token is assumed to a variable. No checks are made to ensure correct syntax.
 
+// Modifed by Wyatt Humphrey Fall 2025
+// Updated Operand::parse to handle floating point literals
+
+
 #include <cctype>
 #include <iostream>
 #include <sstream>
@@ -24,10 +28,10 @@ using namespace std;
 
 Expression* Operand::parse(stringstream& in) {
     char paren;
-    int value;
+    double value;
 
     in >> ws;
-    if (isdigit(in.peek())) {
+    if (isdigit(in.peek()) || in.peek() == '.') {
         in >> value;
         Expression* literal = new Literal(value);
         return literal;

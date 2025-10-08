@@ -7,7 +7,8 @@
 // that contains one statement that includes an expression following by a sequence of variable assignments.
 // It parses each statement and then evaluates it.
 
-
+// Modified by: Wyatt Humphrey Fall 2025
+// Updated parsing of assignments to handle doubles, valitdation of '=' and ';', and improved error messages.
 
 
 
@@ -16,6 +17,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <cctype>
 #include <vector>
 using namespace std;
 
@@ -34,7 +36,7 @@ int main() {
     char paren, comma, line[SIZE];
  
 	ifstream fin;
-	fin = ifstream("input2.txt");
+	fin = ifstream("input.txt");
 	if (!(fin.is_open())) {
 		cout << "File did not open" << endl;
 		system("pause");
@@ -44,20 +46,22 @@ int main() {
         fin.getline(line, SIZE);
 		if (!fin)
 			break;
-		symbolTable = SymbolTable();
 		symbolTable.clear();
 		stringstream in(line, ios_base::in); 
-		in >> paren;
+		in >> ws >> paren;
 		cout << line << " ";
 		try {
 			expression = SubExpression::parse(in);
-			in >> comma;
+			in >> ws >> comma;
 			parseAssignments(in);
 			double result = expression->evaluate();
 			cout << "Value = " << result << endl;
 		}
 		catch (string message) {
 			cout << message << endl;
+		} 
+		catch (runtime_error& e) {
+			cout << e.what() << endl;
 		}
 	}
 	system("pause");
@@ -69,10 +73,25 @@ void parseAssignments(stringstream& in) {
     string variable;
     double value;
     do {
+		in >> ws;
         variable = parseName(in);
-        in >> ws >> assignop >> value >> delimiter;
+        in >> ws >> assignop >> ws >> value >> ws;
+
+		if (assignop != '=') {
+            throw std::runtime_error("Error: expected '=' in assignment to '" + variable + "'.");
+        }
+
         symbolTable.insert(variable, value);
+
+		in >> delimiter;
+        while (in && std::isspace(static_cast<unsigned char>(delimiter))) {
+            in >> delimiter;
+        }
     }
     while (delimiter == ',');
+	
+	if (delimiter != ';') {
+        throw std::runtime_error("Error: expected ';' at end of assignments.");
+    }
 }
    

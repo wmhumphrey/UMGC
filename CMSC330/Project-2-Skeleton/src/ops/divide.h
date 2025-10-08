@@ -1,3 +1,8 @@
+// Wyatt Humphrey
+// CMSC 330 Project 2
+// 10/7/2025
+// This heaseder file contains the Divide class definition.
+// Divide is a subclass of SubExpression and implements the evaluate method.
 
 class Divide: public SubExpression {
 public:
