@@ -1,6 +1,6 @@
 public abstract class ThreeDimensionalShape extends Shape {
-    public ThreeDimensionalShape(String name) {
-        super(name);
+    public ThreeDimensionalShape() {
+        super(3);
     }
 
     public abstract double getVolume();

@@ -1,11 +1,11 @@
 public abstract class Shape {
-    private String name;
+    private int dimensions;
 
-   public Shape(String name){
-    this.name = name;
+   public Shape(int dimensions){
+    this.dimensions = dimensions;
    } 
 
-   public String getName(){
-    return name;
+   public double getDimensions(){
+    return dimensions;
    }
 }
