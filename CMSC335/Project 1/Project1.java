@@ -31,7 +31,7 @@ public class Project1 {
             System.out.println(menu);
             int selection = 0;
             try {
-                System.out.print("Pleases enter a number: ");
+                System.out.print("Please enter a number: ");
                 selection = scanner.nextInt();
             } catch(IllegalArgumentException e) {
                 System.out.println("Incorrect value entered.");
@@ -40,7 +40,8 @@ public class Project1 {
                 case 1:
                     System.out.println("You selected: Circle");
                     System.out.print("Please enter the radius of the circle: ");
-                    int radius = scanner.nextInt();
+                    double radius = scanner.nextDouble();
+                    scanner.nextLine();
                     Circle circle = new Circle(radius);
 
                     System.out.println("The area of the circle is: " + circle.getArea()+ "\n");
@@ -48,85 +49,99 @@ public class Project1 {
                 case 2:
                     System.out.println("You selected: Triangle");
                     System.out.print("Please enter the base length of the triangle: ");
-                    int base = scanner.nextInt();
+                    double base = scanner.nextDouble();
+                    scanner.nextLine();
                     System.out.print("Please enter the height of the triangle: ");
-                    int height = scanner.nextInt();
+                    double height = scanner.nextDouble();
+                    scanner.nextLine();
+
                     Triangle triangle = new Triangle(base, height);
 
-                    System.out.println("The area of the circle is: " + triangle.getArea() + "\n");
+                    System.out.println("The area of the triangle is: " + triangle.getArea() + "\n");
                     break;
                 case 3:
                     System.out.println("You selected: Square");
                     System.out.print("Please enter the length of the square: ");
-                    int length = scanner.nextInt();
+                    double length = scanner.nextDouble();
+                    scanner.nextLine();
                     Square square = new Square(length);
 
-                    System.out.println("The area of the circle is: " + square.getArea() + "\n");
+                    System.out.println("The area of the square is: " + square.getArea() + "\n");
                     break;
                 case 4:
                     System.out.println("You selected: Rectangle");
-                    System.out.print("Please enter the radius of the rectangle: ");
                     System.out.print("Please enter the length of the rectangle: ");
-                    length = scanner.nextInt();
+                    length = scanner.nextDouble();
+                    scanner.nextLine();
                     System.out.print("Please enter the width of the rectangle: ");
-                    int width = scanner.nextInt();
+                    double width = scanner.nextDouble();
+                    scanner.nextLine();
                     Rectangle rectangle = new Rectangle(length, width);
 
-                    System.out.println("The area of the circle is: " + rectangle.getArea() + "\n");
+                    System.out.println("The area of the rectangle is: " + rectangle.getArea() + "\n");
                     break;
                 case 5:
                     System.out.println("You selected: Sphere");
                     System.out.print("Please enter the radius of the sphere: ");
-                    radius = scanner.nextInt();
+                    radius = scanner.nextDouble();
+                    scanner.nextLine();
                     Sphere sphere = new Sphere(radius);
 
-                    System.out.println("The area of the circle is: " + sphere.getVolume()+ "\n");
+                    System.out.println("The volume of the sphere is: " + sphere.getVolume()+ "\n");
                     break;
                 case 6:
                     System.out.println("You selected: Cone");
-                    System.out.print("Please enter the heigt of the cone: ");
-                    height = scanner.nextInt();
+                    System.out.print("Please enter the height of the cone: ");
+                    height = scanner.nextDouble();
+                    scanner.nextLine();
                     System.out.print("Please enter the radius of the cone: ");
                     radius = scanner.nextInt();
+                    scanner.nextLine();
                     Cone cone = new Cone(height, radius);
 
-                    System.out.println("The area of the circle is: " + cone.getVolume() + "\n");
+                    System.out.println("The volume of the cone is: " + cone.getVolume() + "\n");
                     break;
 
                 case 7:
                     System.out.println("You selected: Cube");
                     System.out.print("Please enter the length of the cube: ");
-                    length = scanner.nextInt();
+                    length = scanner.nextDouble();
+                    scanner.nextLine();
                     Cube cube = new Cube(length);
 
-                    System.out.println("The area of the circle is: " + cube.getVolume() + "\n");
+                    System.out.println("The volume of the cube is: " + cube.getVolume() + "\n");
                     break;
 
                 case 8:
                     System.out.println("You selected: Cylinder");
                     System.out.print("Please enter the radius of the cylinder: ");
-                    radius = scanner.nextInt();
+                    radius = scanner.nextDouble();
+                    scanner.nextLine();
                     System.out.print("Please enter the heigt of the cylinder: ");
                     height = scanner.nextInt();
+                    scanner.nextLine();
                     Cylinder cylinder = new Cylinder(radius, height);
 
-                    System.out.println("The area of the circle is: " + cylinder.getVolume() + "\n");
+                    System.out.println("The volume of the cylinder is: " + cylinder.getVolume() + "\n");
                     break;
 
                 case 9:
                     System.out.println("You selected: Torus");
                     System.out.print("Please enter the major radius of the torus: ");
-                    double major = scanner.nextInt();
+                    double major = scanner.nextDouble();
+                    scanner.nextLine();
                     System.out.print("Please enter the minor radius of the torus: ");
-                    double minor = scanner.nextInt();
+                    double minor = scanner.nextDouble();
+                    scanner.nextLine();
                     Torus torus = new Torus(major, minor);
 
-                    System.out.println("The area of the circle is: " + torus.getVolume() + "\n");
+                    System.out.println("The volume of the tourus is: " + torus.getVolume() + "\n");
                     break;
 
                 case 10:
                     System.out.println("Goodbye!");
                     scanner.close();
+                    System.exit(0);
                     break;
             }
         }
