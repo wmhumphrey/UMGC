@@ -1,3 +1,5 @@
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Project1 {
@@ -71,7 +73,7 @@ public class Project1 {
                     break;
                 case 6:
                     System.out.println("You selected: Cone");
-                    height = eadPosDouble(scanner, "Please enter the height of the cone: ");
+                    height = readPosDouble(scanner, "Please enter the height of the cone: ");
                     radius = readPosDouble(scanner, "Please enter the radius of the cone: ");
                     Cone cone = new Cone(height, radius);
                     System.out.println("The volume of the cone is: " + cone.getVolume() + "\n");
@@ -99,12 +101,16 @@ public class Project1 {
                     break;
 
                 case 10:
-                    System.out.println("Goodbye!");
+                    System.out.println("Thank you fo using the Shape Program. Today is " + getCurrentDate());
                     scanner.close();
                     System.exit(0);
                     break;
             }
         }
+    }
+    private static String getCurrentDate() {
+        String date = LocalTime.now().format(DateTimeFormatter.ofPattern("MMM dd 'at' HH:mm"));
+        return date;
     }
 
     private static double readPosDouble(Scanner scanner, String prompt) {
@@ -117,9 +123,8 @@ public class Project1 {
                     return d;
                 } else {
                     System.out.println("Incorrect value. Please enter a postitive number.");
-                    scanner.nextLine();
                 }
-            }
+            } 
         }
     }
 }
