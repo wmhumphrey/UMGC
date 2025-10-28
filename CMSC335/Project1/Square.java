@@ -27,6 +27,7 @@ public class Square extends TwoDimensionalShape {
      * 
      * @return the area of the square
      */
+    @Override
     public double getArea() {
         return length * length;
     }

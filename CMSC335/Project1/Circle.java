@@ -28,6 +28,7 @@ public class Circle extends TwoDimensionalShape {
      * 
      * @return the area of the circle
      */
+    @Override
     public double getArea() {
         return Math.PI * radius * radius;
     }
