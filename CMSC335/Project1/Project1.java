@@ -127,8 +127,15 @@ public class Project1 {
                 // Torus case
                 case 9:
                     System.out.println("You selected: Torus");
-                    double major = readPosDouble(scanner, "Please enter the major radius of the torus: ");
-                    double minor = readPosDouble(scanner, "Please enter the minor radius of the torus: ");
+                    double major, minor;
+                    while (true) {
+                        major = readPosDouble(scanner, "Please enter the major radius of the torus: ");
+                        minor = readPosDouble(scanner, "Please enter the minor radius of the torus: ");
+                        if (major > minor) {
+                            break;
+                        } else {
+                            System.out.println("Incorrect values. Major radius must be greater than minor radius.");
+                        }    
                     Torus torus = new Torus(major, minor);
                     System.out.println("The volume of the tourus is: " + torus.getVolume() + "\n");
                     break;
@@ -177,3 +184,4 @@ public class Project1 {
         }
     }
 }
+ 
