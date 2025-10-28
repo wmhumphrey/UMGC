@@ -9,7 +9,7 @@
  * based on the user inputs.
  */
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
@@ -139,6 +139,7 @@ public class Project1 {
                     Torus torus = new Torus(major, minor);
                     System.out.println("The volume of the tourus is: " + torus.getVolume() + "\n");
                     break;
+                    }
                 
                 // Exit case    
                 case 10:
@@ -156,7 +157,7 @@ public class Project1 {
      * @return current date and time in MMM dd HH:mm format
      */
     private static String getCurrentDate() {
-        String date = LocalTime.now().format(DateTimeFormatter.ofPattern("MMM dd 'at' HH:mm"));
+        String date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("MMM dd 'at' HH:mm"));
         return date;
     }
 
