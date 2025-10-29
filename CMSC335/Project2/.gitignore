@@ -1,0 +1,78 @@
+# =========================================
+# Java / CMSC 335 Project 2 .gitignore
+# =========================================
+
+# --- Compiled class files ---
+*.class
+*.jar
+*.war
+*.ear
+
+# --- Log files ---
+*.log
+
+# --- BlueJ files ---
+*.ctxt
+
+# --- Mobile Tools for Java (J2ME) ---
+.mtj.tmp/
+
+# --- Package Files ---
+*.zip
+*.tar.gz
+*.rar
+
+# --- VM Crash Logs ---
+hs_err_pid*
+
+# --- IDE Folders ---
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# VS Code
+.vscode/
+.vscode/*
+.settings.json
+
+# --- JavaFX / Build Outputs ---
+/build/
+/dist/
+/target/
+/out/
+/*.DS_Store
+
+# --- OS Specific ---
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Test Artifacts ---
+/test-output/
+/test-results/
+/screenshots/
+
+# --- Generated Docs ---
+/docs/*.pdf
+/docs/*.docx
+/docs/*.png
+
+# --- Temporary Files ---
+*~
+*.swp
+*.tmp
+*.bak
+*.orig
