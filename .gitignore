@@ -1,3 +1,77 @@
+# =========================================
+# UMGC Java Projects (.gitignore)
+# =========================================
+
+# --- Java ---
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# --- BlueJ / JGrasp temp files ---
+*.ctxt
+
+# --- Build / Output directories ---
+/build/
+/bin/
+/out/
+/dist/
+/target/
+
+# --- IDE files ---
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# --- OS-specific ---
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Archives ---
+*.zip
+*.tar.gz
+*.rar
+
+# --- Crash logs ---
+hs_err_pid*
+
+# --- Temporary / Backup files ---
+*~
+*.swp
+*.tmp
+*.bak
+*.orig
+
+# --- Docs & Test Artifacts ---
+/docs/*.pdf
+/docs/*.docx
+/docs/*.png
+/test-output/
+/test-results/
+/screenshots/
+
+# --- Allow CMSC course folders ---
+!CMSC*/
+!CMSC335/
+!CMSC335/**
+
 # =====================================
 # General C++ and build artifacts
 # =====================================
